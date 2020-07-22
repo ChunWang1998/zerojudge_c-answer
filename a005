@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+ int num;
+  cin>> num;
+  int a ,b,c,d;
+  while(num--){
+    cin>>a>>b>>c>>d;
+    if((b-a) == (c-b))
+        cout<<a<<' '<<b<<' '<<c<<' '<<d<<' '<<2*d-c<<endl;
+    else
+        cout<<a<<' '<<b<<' '<<c<<' '<<d<<' '<<d*d/c<<endl;
+  }
+
+
+}
