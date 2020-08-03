@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+int main()
+{
+    int a;
+    cin>>a;
+    int x,y,z;
+    x=a/100;
+    y=(a-x*100)/10;
+    z=(a-x*100-y*10);
+    char A =x+64;
+    char B =y+64;
+    char C = z+64;
+    cout<<A<<B<<C;
+    return 0;
+}
