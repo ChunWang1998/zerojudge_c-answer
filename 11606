@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+int f(int);
+int main()
+{
+int a;
+cin>>a;
+int b,c;
+while(a>0){
+
+cin>>b>>c;
+float flag;
+int ans=b;
+for(;b<c;b++){
+int t;
+if(f(b)<f(b+1)){
+t=b+1;
+if (f(t)>f(ans))
+    ans=t;
+}
+}
+a--;
+cout<<ans<<endl;
+}
+}
+
+
+ int f(int run){
+  float flag =0;
+  int use=1;
+  for(;use*use<=run;use++){
+    if(!(run%use))
+    flag++;
+    if(use*use==run)
+        flag=(flag-0.5);
+  }
+    return 2*flag;}
