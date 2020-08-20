@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+    //char input[5],test[10];
+    string input,test;
+    int run,i,j,count,ans=0;
+    //scanf("%s",input);
+    cin>>input;
+    //scanf("%d",&run);
+    cin>>run;
+    for(;run>0;run--)
+    {
+        count=0;
+        //scanf("%s",test);
+        cin>>test;
+        //int A=strlen(input),B=strlen(test);
+        int A = input.length();
+        int B = test.length();
+        for(i=0,j=0;i<B;i++,j=0)
+        {
+            int k=i;
+        if (input[j]==test[i])
+            {
+                for(j=0;j<A;i++,j++){
+                    if(input[j]!=test[i])break;
+                    if(j==A-1)count++;}
+            }
+        i=k;
+        }
+        if(count>=ans)ans=count;
+    }
+    //printf("%d",ans);
+    cout<<ans;
+    return 0;
+}
