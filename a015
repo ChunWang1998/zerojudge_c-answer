@@ -1,0 +1,27 @@
+//a15
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a[10][10];
+    int b,c,x,y;
+    while(cin>>y>>x)
+        {
+
+        for(b=0;b<y;b++)
+          {
+            for(c=0;c<x;c++)
+                cin>>a[b][c];
+          }
+
+    for (b=0;b<x;b++)
+    {
+        for (c=0;c<y;c++)
+        cout<<a[c][b]<<endl;
+    }
+
+    }
+    return 0;
+}
