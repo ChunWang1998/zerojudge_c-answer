@@ -1,0 +1,17 @@
+#include <iostream>
+#include <iomanip> //setprecision會用到的函式庫
+using namespace std;
+
+int main(){
+    double x1,y1,x2,y2,X,Y;
+    double D,m;
+    char g1,g2,g3;
+    cin>>g1>>x1>>g2>>y1>>g3;
+    cin>>g1>>x2>>g2>>y2>>g3;
+    cin>>g1>>X>>g2>>Y>>g3;
+
+    m=(y2-y1)/(x2-x1);
+    D=(m*X-Y+y1-m*x1)*(m*X-Y+y1-m*x1)/(m*m+1);
+
+    cout  << fixed  <<  setprecision(2) << D<<endl;
+}
