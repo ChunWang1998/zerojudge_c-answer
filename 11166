@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+     int a,i,t;
+    cin>>a;
+    for(i=0;i<a;i++){
+        int b,arr[10001],c,k,j;
+        cin>>b;
+        for(c=0;c<b;c++)
+            cin>>arr[c];
+
+        for(k=0;k<b-1;k++)
+            for(j=1;j<b-k;j++)
+                if(arr[j-1]>arr[j]){
+                        t=arr[j-1];
+                        arr[j-1]=arr[j];
+                        arr[j]=t;
+                }
+
+        for(k=0;k<b-1;k++)
+            cout<<arr[k]<<' ';
+        cout<<arr[b-1];
+        cout<<endl;
+    }
+}
