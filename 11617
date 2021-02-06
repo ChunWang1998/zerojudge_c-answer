@@ -1,0 +1,25 @@
+#include <iostream>
+int is[300000] = {0};
+using namespace std;
+
+int main(){
+    int n, m, i;
+    cin>>n>>m;
+    int t[m+1];
+
+    for(i = 1; i <= m; i++){
+        cin>>t[i];
+    }//t[1]=4 t[2]=2 t[3]=3 t[4]=2
+
+    for(i = m; i >= 1; i--){
+        if(!is[t[i]]){
+            cout<<t[i]<<endl;
+            is[t[i]] = 1;
+        }
+    }//t[4]=2 t[3]=3 t[2]=2 t[1]=4
+
+    for(i = 1; i <= n; i++){
+        if(!is[i])
+            cout<<i<<endl;
+    }//1.2.3.4.5
+}
