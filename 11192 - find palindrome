@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+#include <string.h>
+
+
+int main()
+{
+ int a,i,done,x,y,n,m,k;
+   char input[1001];
+   cin>>a;
+   for(i=0;i<a;i++){
+        done=0;
+        cin>>input;
+    for(n=strlen(input);n>0;n--){
+        for(m=0;m+n<=strlen(input);m++){//m是起點,n是終點
+            x=m;
+            y=m+n-1;
+            while(x<=y){
+                if(input[x]==input[y]){
+                    x++;
+                    y--;
+                }
+                else break;
+            }
+            if(x>=y)done=1;
+                if(done)break;
+        }
+        if(done)break;
+    }
+        if(x>=y){//如果超過的話
+            for(k=m;k<m+n;k++)cout<<input[k];
+            cout<<endl;
+        }
+   }
+}
