@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+#include <string.h>
+int climb(int input){
+if(input==1||input==0)return 1;
+int count;
+count=climb(input-1)+climb(input-2);
+return count;
+}
+
+int main()
+{
+ int a;
+    cin>>a;
+    int i;
+    for(i=0;i<a;i++){
+        int input;
+        cin>>input;
+        cout<<climb(input)<<endl;
+    }
+}
