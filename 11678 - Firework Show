@@ -1,0 +1,52 @@
+#include <iostream>
+
+using namespace std;
+int count=0,fire[1000];
+
+void show(int firenum,int grade){
+if(grade<0)return;
+else if(grade==0)count++;
+else {
+        if(firenum>=0){
+        show(firenum-1,grade-fire[firenum]);
+
+      int i,j=1;
+for(i=firenum;i>=0;i--){
+if(fire[i]!=fire[firenum]){
+        firenum=i;
+        j=0;
+        break;
+    }
+}
+if(!j)
+show(firenum,grade);
+        }
+}
+}
+
+int main()
+{
+int a ;
+    cin>>a;
+    int i;
+    for(i=0;i<a;i++){
+        int firenum,grade;
+        cin>>firenum>>grade;
+        int j;
+        for(j=0;j<firenum;j++){
+            cin>>fire[j];
+        }
+
+      int m,n,turn;
+      for(m=0;m<firenum-1;m++)
+            for(n=1;n<firenum-m;n++)
+      if(fire[n-1]>fire[n])
+         {
+             turn=fire[n-1];fire[n-1]=fire[n];fire[n]=turn;
+         }
+
+show(firenum-1,grade);
+cout<<count<<endl;
+count=0;
+    }
+}
