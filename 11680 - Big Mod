@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+int pow(long long int a,long long int n,long long int m){
+if(n==1)
+    return a%m;
+
+    long long int sqrt=pow(a,n/2,m);
+
+if(!(n%2)){
+    return (sqrt*sqrt)%m;
+}
+else{
+    return (((a%m)*(sqrt%m))%m*(sqrt%m))%m;
+
+}
+}
+
+int main()
+{
+    int T;
+    cin>>T;
+    int i;
+    for(i=0;i<T;i++){
+        long long int a,n,m;
+        cin>>a>>n>>m;
+        cout<<pow(a,n,m)<<endl;
+    }
+}
