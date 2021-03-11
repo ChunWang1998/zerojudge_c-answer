@@ -1,0 +1,92 @@
+#include <iostream>
+using namespace std;
+char star [100][100];
+int c,f,h,s;
+char x;
+int all_len;
+void show_down(int,int);
+void show_up(int high,int length){
+    star[high][length]='*';
+
+if((star[high-1][length]!='-')&&(high-1==0)){
+    star[high-1][length+1]='*';
+    all_len=length+1;
+    return;
+}
+    else if(star[high-1][length]!='-')
+    show_up((high-1),(length+1));
+
+    else if(star[high-1][length]=='-')
+        show_down(high+1,length+1);
+}
+
+void show_down(int high,int length){
+star[high][length]='*';
+
+if((star[high+1][length]!='-')&&(high+1==(h+1))){
+    star[high+1][length+1]='*';
+    all_len=length+1;
+    return;
+}
+    else if(star[high+1][length]!='-')
+    show_down((high+1),(length+1));
+
+    else if(star[high+1][length]=='-')
+        show_up(high-1,length+1);
+
+}
+
+int main() {
+  int i,j;
+    for(i=0;i<=100;i++)
+        for(j=0;j<=100;j++)
+        star[i][j]=' ';
+  cin>>c>>f>>h;
+  cin>>s;
+  cin>>x;
+if(s<=h){
+for(i=0;i<c;i++)
+    star[0][i]='-';
+
+for(j=0;j<f;j++)
+    star[h+1][j]='-';
+
+star[s][0]='*';
+if(x=='u')
+    show_up(s,0);
+
+else if(x=='d')
+    show_down(s,0);
+
+if(all_len>=c&&all_len>=f){
+    for(i=0;i<=h+1;i++){
+        for(j=0;j<=all_len;j++){
+            cout<<star[i][j];
+            if(star[i][j]=='\0')
+                break;
+        }
+      cout<<endl;
+    }
+}
+
+else if(c>=all_len&&c>=f){
+    for(i=0;i<=h+1;i++){
+        for(j=0;j<c;j++){
+          cout<<star[i][j];
+            if(star[i][j]=='\0')
+                break;
+        }
+      cout<<endl;
+    }
+}
+    else
+        for(i=0;i<=h+1;i++){
+        for(j=0;j<f;j++){
+          cout<<star[i][j];
+            if(star[i][j]=='\0')
+                break;
+        }
+          cout<<endl;
+    }
+}
+}
