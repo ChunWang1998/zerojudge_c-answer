@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main()
+{
+   int a;
+   scanf("%d",&a);
+   int i,k,j;
+   int ans;
+   for(i=0;i<a;i++){
+        ans=0;
+
+        char b[200002]={0},c[200002]={0};
+
+        scanf("%s %s",b,c);
+
+        int use;
+        if(strlen(b)>=strlen(c))
+            use=strlen(b);
+        else
+            use=strlen(c);
+
+       for(k=0;k<=use;k++)
+       {
+        if(b[k]!=c[k]){
+            if(strlen(b)==strlen(c)+1){
+                //錯的那個後面全部退一格
+                for(j=strlen(b)-1;j>k;j--){
+                    c[j]=c[j-1];
+                }
+                //把那格補起來
+                c[k]=b[k];
+                //比較字串
+                if(!strcmp(b,c))
+                ans=1;
+                if(ans)
+                    break;
+                else
+                    break;
+            }
+
+            else if(strlen(c)==strlen(b)+1){
+                //錯的那個後面全部退一格
+                for(j=strlen(c)-1;j>k;j--){
+                    b[j]=b[j-1];
+                }
+                //把那格補起來
+                b[k]=c[k];
+                //比較字串
+                if(!strcmp(b,c))
+                ans=1;
+                if(ans)
+                    break;
+                else
+                    break;
+            }
+
+            else if(strlen(b)==strlen(c)){
+            char same=b[k],samee=c[k];
+            b[k]=c[k];
+            if(!strcmp(b,c))
+                    ans=1;
+                    if(ans)
+                        break;
+
+              if(same==c[k+1]&&samee==b[k+1]){
+              b[k+1]=same;
+              if(!strcmp(b,c))
+                    ans=1;
+              }
+                    if(ans)
+                        break;
+              if(!ans)
+                break;
+            }
+        }
+       }
+if (ans)
+    printf("Yes\n");
+    else
+    printf("No\n");
+   }
+    return 0;
+}
