@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string.h>
+int count=0;
+char bigput[100];
+char smallput[100];
+int bignum;
+int smallnum;
+using namespace std;
+void point(int big,int small){
+if(small==smallnum-1)
+    count++;
+
+int i,j=small+1;
+
+for(i=big+1;i<=bignum-(smallnum-small)+1;i++)
+if(bigput[i]==smallput[j])
+    point(i,j);
+}
+
+
+int main() {
+  while(cin>>bigput){
+    cin>>smallput;
+
+ bignum=strlen(bigput);
+ smallnum=strlen(smallput);
+
+int big;
+for(big=0;big<=bignum-smallnum;big++)
+       if(bigput[big]==smallput[0])
+        point(big,0);
+
+    cout<<count<<endl;
+         count=0;
+}
+}
