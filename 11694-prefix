@@ -1,0 +1,40 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+float coc(void){
+    float ans;
+    char c;
+    float op1,op2;
+c=getchar();
+if(c=='+'){
+    op1=coc();
+    op2=coc();
+    ans=op1+op2;
+}
+else if(c=='-'){
+    op1=coc();
+    op2=coc();
+    ans=op1-op2;
+}
+else if(c=='*'){
+    op1=coc();
+    op2=coc();
+    ans=op1*op2;
+}
+else if(c=='/'){
+    op1=coc();
+    op2=coc();
+    ans=op1/op2;
+}
+else if(isdigit(c)){
+    ans=c-'0';
+}
+return ans;
+}
+
+int main() {
+  
+    float use=coc();
+    cout<<fixed<<setprecision(3)<<use;
+    return 0;
+}
